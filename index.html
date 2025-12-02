@@ -1,66 +1,97 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Hablar con Tobias</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .box {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    max-width: 380px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-  }
-  h1 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 15px;
-    color: #555;
-  }
-  .btn {
-    margin-top: 20px;
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 16px;
-    width: 100%;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contactar — Tobias</title>
+  <style>
+    :root{--bg:#f7f9fb;--card:#25D366;--text:#0b0b0b;--white:#fff}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg)}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+    .card{width:100%;max-width:760px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(10,10,10,.06);padding:28px;text-align:center}
+    h1{margin:0 0 8px;font-size:20px;color:var(--text)}
+    p{margin:0 0 20px;color:#374151}
+    .btn{display:inline-flex;align-items:center;gap:12px;background:var(--card);color:var(--white);border:none;padding:14px 18px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none}
+    .btn:active{transform:translateY(1px)}
+    .alt{margin-top:16px;color:#6b7280;font-size:14px}
+    .footer{margin-top:18px;color:#9ca3af;font-size:13px}
+    .manual{display:block;margin:18px auto 0;background:#eef6f1;border-radius:10px;padding:12px;max-width:420px}
+    a.manual-link{display:inline-block;padding:10px 14px;border-radius:10px;background:#0b8457;color:#fff;text-decoration:none;font-weight:600}
+  </style>
 </head>
-
 <body>
-<div class="box">
-  <h1>Hablar con Tobias por WhatsApp</h1>
-  <p>Pulsa el botón para iniciar la conversación.</p>
+  <div class="wrap">
+    <div class="card" role="main" aria-labelledby="title">
+      <h1 id="title">Hablar con Tobias por WhatsApp</h1>
+      <p>Pulsa el botón para iniciar una conversación directa. Si la app no se abre, usá la opción web o tocá el enlace alternativo.</p>
 
-  <button class="btn" onclick="openWhatsApp()">Hablar con Tobias por WhatsApp</button>
-</div>
+      <!-- BOTÓN PRINCIPAL -->
+      <button id="openBtn" class="btn" aria-label="Hablar con Tobias por WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex:0 0 20px" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <path d="M20.52 3.48A11.9 11.9 0 0 0 12 0C5.373 0 0 5.373 0 12c0 2.115.548 4.17 1.587 5.993L0 24l6.257-1.614A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12 0-1.888-.448-3.68-1.48-5.22z" fill="#25D366"/>
+          <path d="M17.22 13.03c-.29-.15-1.7-.84-1.96-.94-.26-.11-.45-.15-.64.15-.2.29-.77.94-.95 1.13-.18.19-.36.22-.66.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.67-2.06-.18-.29-.02-.45.13-.59.13-.13.29-.33.44-.5.15-.17.2-.29.3-.48.1-.19.05-.36-.03-.51-.08-.15-.64-1.55-.88-2.13-.23-.55-.47-.48-.64-.49l-.54-.01c-.18 0-.47.06-.72.36-.25.31-.95.93-.95 2.27 0 1.34.97 2.64 1.11 2.83.14.18 1.92 2.93 4.66 4.01 1.3.53 2.32.85 3.12 1.09.33.08.63.07.87.05.27-.02.84-.34.96-.67.12-.33.12-.61.09-.67-.03-.07-.11-.11-.23-.17z" fill="#fff"/>
+        </svg>
+        Hablar con Tobias por WhatsApp
+      </button>
+
+      <div class="alt">Si aparece error: tocá los tres puntos (⋯) arriba y elegí <strong>Abrir en navegador</strong>, luego pulsá el botón otra vez.</div>
+
+      <!-- ENLACE MANUAL PARA CAIDAS -->
+      <div class="manual">
+        <div style="margin-bottom:8px;color:#374151;font-size:14px">Si el botón no abre automáticamente:</div>
+        <a id="manualLink" class="manual-link" href="#" target="_blank" rel="noopener">Abrir WhatsApp en navegador</a>
+      </div>
+
+      <div class="footer">Número: +34 656 960 696 · Psicólogo</div>
+    </div>
+  </div>
 
 <script>
-function openWhatsApp() {
-    // Este link SIEMPRE funciona en iPhone, Android, TikTok, IG, todo.
-    window.location.href = "https://api.whatsapp.com/send?phone=34656960696";
-}
-</script>
+(function(){
+  // Configuración: número (sin + ni espacios)
+  const phone = "34656960696";
+  const webUrl = "https://api.whatsapp.com/send?phone=" + phone;
+  const appUrlIos = "whatsapp://send?phone=" + phone;        // intento de URI app
+  const intentAndroid = "intent://send/?phone=" + phone + "#Intent;scheme=whatsapp;package=com.whatsapp;end";
 
+  const btn = document.getElementById("openBtn");
+  const manual = document.getElementById("manualLink");
+  manual.href = webUrl;
+
+  function tryOpenApp() {
+    const ua = navigator.userAgent || "";
+    // Android: usar intent (suele funcionar mejor en Chrome/Android)
+    if (/android/i.test(ua)) {
+      // primer intento: intent URI (abre app si está instalada)
+      window.location = intentAndroid;
+      // fallback a web en 1000ms
+      setTimeout(function(){ window.location = webUrl; }, 1000);
+      return;
+    }
+
+    // iOS o escritorio: intentar whatsapp:// y fallback a web
+    // Primero intent directo (puede fallar en navegadores internos)
+    window.location = appUrlIos;
+
+    // Si no abrió en 1000ms, abrir la web como alternativa
+    setTimeout(function(){
+      window.location = webUrl;
+    }, 1000);
+  }
+
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    tryOpenApp();
+  });
+
+  // Si el usuario viene desde pantalla grande (desktop), forzamos abrir web en nueva pestaña
+  if (window.matchMedia && window.matchMedia("(min-width:900px)").matches) {
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      window.open(webUrl, "_blank");
+    });
+  }
+})();
+</script>
 </body>
 </html>
